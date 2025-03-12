@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/dog-search.tsx","./src/components/login.tsx","./src/components/text-input.tsx","./src/data/fetch-query.ts","./src/data/types.ts"],"errors":true,"version":"5.7.3"}
