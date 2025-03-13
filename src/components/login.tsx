@@ -1,23 +1,18 @@
 import { useMutation } from '@tanstack/react-query';
-import clsx from "clsx";
 import { Dispatch, SetStateAction } from 'react';
-import { fetchQuery } from '../data/fetch-query.ts';
+import fetchDoggo from '../assets/fetch.svg';
+import { fetchLogin } from '../data/fetch-query.ts';
+import { Button } from './button.tsx';
 import { TextInput } from './text-input.tsx';
 
-type LoginBody = {
-  name: string;
-  email: string;
-};
 interface LoginProps {
   setLoggedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Login = ({ setLoggedIn }: LoginProps) => {
   const { mutate } = useMutation({
-    mutationFn: fetchQuery<LoginBody, Response>({
-      method: 'POST',
-      endPoint: `/auth/login`,
-    }),
+    mutationFn: fetchLogin,
+    mutationKey:["login-mutation"],
     onSuccess: data => {
       if (data.ok) {
         setLoggedIn(true);
@@ -34,16 +29,32 @@ export const Login = ({ setLoggedIn }: LoginProps) => {
       email,
     });
   };
-  const sam: string = '44';
 
   return (
-    <div className="flex justify-center flex-column">
-      <div>IMAGE</div>
-      <h3>Login Please</h3>
-      <form onSubmit={onSubmit}>
-        <TextInput name="name" placeholder="name" required type="text" />
-        <TextInput name="email" placeholder="email" required type="text" />
-        <button type="submit" className={clsx(sam)} />
+    <div className="flex justify-center flex-column items-center pt6">
+      <img
+        src={fetchDoggo as string}
+        alt="fetch logo"
+        width={100}
+        height={100}
+      />
+      <h3>Sign in</h3>
+      <form onSubmit={onSubmit} className="flex flex-column">
+        <TextInput
+          name="name"
+          placeholder="name"
+          required
+          type="text"
+          className="mv2"
+        />
+        <TextInput
+          name="email"
+          placeholder="email"
+          required
+          type="text"
+          className="mv2"
+        />
+        <Button type="submit" label="Continue" />
       </form>
     </div>
   );

@@ -1,5 +1,4 @@
-import clsx from "clsx";
-
+import clsx from 'clsx';
 
 type TextInputProps = Partial<HTMLInputElement>;
 
@@ -12,7 +11,7 @@ export const TextInput = ({
 }: TextInputProps) => {
   return (
     <input
-      className={clsx('f4', className)}
+      className={clsx('bg-white pa2 br3 black', className)}
       name={name}
       placeholder={placeholder}
       required={required}

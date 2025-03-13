@@ -6,7 +6,7 @@ import { Login } from './components/login.tsx';
 const queryClient = new QueryClient();
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(true);
 
   useEffect(() => {
     // print list of breeds. user will click to select a couple breeds
