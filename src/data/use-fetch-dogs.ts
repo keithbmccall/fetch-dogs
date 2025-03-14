@@ -1,13 +1,15 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { fetchDogs, fetchSearch } from './fetch-query.ts';
 
 export const useFetchDogs = () => {
-  const queryClient = useQueryClient();
-  const [queryParams, setQueryParams] = useState<URLSearchParams>(null);
+  const [queryParams, setQueryParams] = useState<URLSearchParams>(
+    new URLSearchParams(),
+  );
+
   const { data } = useQuery({
     queryFn: fetchSearch,
-    queryKey: ['search-query', queryParams],
+    queryKey: ['search-query', queryParams.toString()],
     enabled: Boolean(queryParams),
   });
   const { mutate, data: dogsData } = useMutation({
@@ -15,13 +17,10 @@ export const useFetchDogs = () => {
     mutationKey: ['fetch-dogs-mutation'],
   });
   useEffect(() => {
-    if (data) {
-      console.log(data);
+    if (data?.resultIds) {
       mutate(data.resultIds);
     }
   }, [data, mutate]);
-
-
 
   const searchDogsByBreeds = (breedsToSearch: string[]) => {
     const queryParams = new URLSearchParams();

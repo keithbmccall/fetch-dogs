@@ -30,7 +30,7 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
     });
   };
   return (
-    <div className="fixed left-0 w-30 b--black h-100 br overflow-scroll">
+    <div className="fixed left-0 b--black h-100 br overflow-scroll breeds-panel">
       <div className="flex justify-center">
         <h3 className="tc mr3">Breeds list</h3>
         <Button className="pa1" label="Search" onClick={onSearch} />

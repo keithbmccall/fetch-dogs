@@ -68,6 +68,36 @@ button:focus-visible {
   }
 }
 
-.breed-panel {
+.breeds-panel {
   width: 300px;
+}
+.dog-search {
+  margin-left: 300px;
+}
+
+.name-item,
+.age-item,
+.zip-item,
+.breed-item {
+  flex: 1;
+  min-height: 75px;
+}
+
+.name-item,
+.age-item {
+  min-width: 100px;
+}
+.breed-item,
+.zip-item {
+  min-width: 150px;
+  flex: 2;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dog-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
 }
