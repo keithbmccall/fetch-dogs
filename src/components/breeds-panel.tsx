@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import clsx from 'clsx';
-import { MouseEvent, useState } from 'react';
+import { useState } from 'react';
 import { fetchBreeds } from '../data/fetch-query.ts';
 import { Button } from './button.tsx';
 
@@ -18,11 +18,11 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
   });
 
   const onSearch = () => {
-    onSearchDogs(Object.keys(selectedBreeds).filter(
-      breed => selectedBreeds[breed],
-    ));
+    onSearchDogs(
+      Object.keys(selectedBreeds).filter(breed => selectedBreeds[breed]),
+    );
   };
-  const onClick = (e: MouseEvent<HTMLButtonElement>, breed: string) => {
+  const onClick = (breed: string) => {
     const isSelected = selectedBreeds[breed];
     setSelectedBreeds({
       ...selectedBreeds,
@@ -33,7 +33,9 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
     <div className="fixed left-0 b--black h-100 br overflow-scroll breeds-panel">
       <div className="flex justify-center">
         <h3 className="tc mr3">Breeds list</h3>
-        <Button className="pa1" label="Search" onClick={onSearch} />
+        <Button className="pa1" onClick={onSearch}>
+          <>Search</>
+        </Button>
       </div>
 
       <div className="pl3">
@@ -44,14 +46,15 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
               return (
                 <li key={breed}>
                   <Button
-                    label={breed}
                     variant="secondary"
                     className={clsx({
                       ['underline']: showUnderline,
                     })}
                     type="button"
-                    onClick={e => onClick(e, breed)}
-                  />
+                    onClick={() => onClick(breed)}
+                  >
+                    <>{breed}</>
+                  </Button>
                 </li>
               );
             })}

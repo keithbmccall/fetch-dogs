@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { fetchDogs, fetchSearch } from './fetch-query.ts';
-import { Dog } from './types.ts';
+import { Dog, fetchDogs, fetchSearch } from './fetch-query.ts';
 
 export const useFetchDogs = () => {
   const [queryParams, setQueryParams] = useState<URLSearchParams>(
@@ -69,8 +68,7 @@ export const useFetchDogs = () => {
         !isLoading &&
         nextPage
       ) {
-        const queryParams = new URLSearchParams(nextPage.split('?')[1]);
-        setQueryParamsOnPage(queryParams);
+        setQueryParamsOnPage(new URLSearchParams(nextPage.split('?')[1]));
       }
     };
 

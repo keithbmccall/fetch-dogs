@@ -2,14 +2,14 @@ import clsx from 'clsx';
 import { MouseEventHandler, ReactNode } from 'react';
 
 type ButtonProps = Partial<HTMLButtonElement> & {
-  label?: ReactNode | string;
+  children?: ReactNode | string;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary';
 };
 
 export const Button = ({
   className,
-  label,
+  children,
   onClick,
   type = 'button',
   variant = 'primary',
@@ -26,14 +26,14 @@ export const Button = ({
       className={clsx(
         'mv2 br3',
         {
-          ['bg-black-90 white']: variant === 'primary',
+          ['bg-black-90']: variant === 'primary',
           ['bg-transparent black-90 pa0 tl']: variant === 'secondary',
         },
         className,
       )}
       onClick={click}
     >
-      {label}
+      {children}
     </button>
   );
 };
