@@ -34,7 +34,7 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
       <div className="flex justify-center">
         <h3 className="tc mr3">Breeds list</h3>
         <Button className="pa1" onClick={onSearch}>
-          <>Search</>
+          Search
         </Button>
       </div>
 
@@ -53,7 +53,7 @@ export const BreedsPanel = ({ onSearchDogs }: BreedsPanelProps) => {
                     type="button"
                     onClick={() => onClick(breed)}
                   >
-                    <>{breed}</>
+                    {breed}
                   </Button>
                 </li>
               );

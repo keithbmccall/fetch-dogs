@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { MouseEventHandler, ReactNode } from 'react';
 
-type ButtonProps = Partial<HTMLButtonElement> & {
+type ButtonProps = Omit<Partial<HTMLButtonElement>,"children">& {
   children?: ReactNode | string;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   variant?: 'primary' | 'secondary';

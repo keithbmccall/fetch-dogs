@@ -21,7 +21,7 @@ export const useFetchDogs = () => {
     queryKey: ['search-page-query', queryParamsOnPage?.toString()],
     enabled: !!queryParamsOnPage,
   });
-  const { mutate } = useMutation({
+  const { mutate: fetchDogsMutation } = useMutation({
     mutationFn: fetchDogs,
     mutationKey: ['fetch-dogs-mutation'],
     onSuccess: data => {
@@ -32,15 +32,15 @@ export const useFetchDogs = () => {
   useEffect(() => {
     if (searchData?.resultIds) {
       setNextPage(searchData.next);
-      mutate(searchData.resultIds);
+      fetchDogsMutation(searchData.resultIds);
     }
-  }, [searchData, mutate]);
+  }, [searchData, fetchDogsMutation]);
   useEffect(() => {
     if (searchPageData?.resultIds) {
       setNextPage(searchPageData.next);
-      mutate(searchPageData.resultIds);
+      fetchDogsMutation(searchPageData.resultIds);
     }
-  }, [searchPageData, mutate]);
+  }, [searchPageData, fetchDogsMutation]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -85,11 +85,11 @@ button:focus-visible {
 
 .name-item,
 .age-item {
-  min-width: 100px;
+  width: 150px;
 }
 .breed-item,
 .zip-item {
-  min-width: 150px;
+  width: 150px;
   flex: 2;
   white-space: pre-wrap;
   overflow: hidden;

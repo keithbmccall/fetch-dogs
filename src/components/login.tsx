@@ -12,7 +12,7 @@ interface LoginProps {
 export const Login = ({ setLoggedIn }: LoginProps) => {
   const { mutate } = useMutation({
     mutationFn: fetchLogin,
-    mutationKey:["login-mutation"],
+    mutationKey: ['login-mutation'],
     onSuccess: data => {
       if (data.ok) {
         setLoggedIn(true);
@@ -54,7 +54,7 @@ export const Login = ({ setLoggedIn }: LoginProps) => {
           type="text"
           className="mv2"
         />
-        <Button type="submit" label="Continue" />
+        <Button type="submit">Continue </Button>
       </form>
     </div>
   );

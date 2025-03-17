@@ -43,7 +43,7 @@ export const DogSearch = () => {
           <div className="flex justify-center">
             <h3 className="tc mr3">Dogs</h3>
             <Button className="pa1" onClick={onMatch}>
-              <>Match</>
+              Match
             </Button>
           </div>
 
