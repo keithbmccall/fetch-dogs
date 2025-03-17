@@ -1,3 +1,5 @@
+import { Dog } from './types.ts';
+
 const baseUrl = 'https://frontend-take-home-service.fetch.com';
 
 type FetchQuery = ({
@@ -60,14 +62,7 @@ export const fetchSearch = async ({
   return (await fetchQuery({ endPoint, method: 'GET', query })).json();
 };
 
-interface Dog {
-  id: string
-  img: string
-  name: string
-  age: number
-  zip_code: string
-  breed: string
-}
+
 export const fetchDogs = async (body: string[]): Promise<Dog[]> => {
   const endPoint = `/dogs`;
   return (await fetchQuery({ endPoint, method: 'POST', body: JSON.stringify(body) })).json();

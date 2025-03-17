@@ -12,14 +12,6 @@ export const DogSearch = () => {
   // each item will have a checkbox to select, and we will add this to list
   // on click of match button, we will call match and display the single result prominently
 
-  interface Dog {
-    id: string;
-    img: string;
-    name: string;
-    age: number;
-    zip_code: string;
-    breed: string;
-  }
   return (
     <div className="flex justify-center flex-column items-center overflow-scroll dog-search">
       <div className="relative">
