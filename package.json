@@ -5,25 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "vite",
     "build": "vite build",
     "nuke": "rm -rf node_modules;yarn;",
     "nukestart": "rm -rf node_modules;yarn;yarn start;",
     "lint": "eslint .",
     "preview": "vite preview",
-    "tc": "tsc --noEmit"
+    "tc": "tsc -b"
   },
   "dependencies": {
     "@tanstack/react-query": "5.67.2",
+    "@vitejs/plugin-react": "4.3.4",
     "clsx": "2.1.1",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "vite": "6.2.1"
   },
   "devDependencies": {
     "@eslint/js": "9.22.0",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
-    "@vitejs/plugin-react": "4.3.4",
     "eslint": "9.22.0",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "0.4.19",
@@ -31,12 +31,11 @@
     "prettier": "3.5.3",
     "prettier-plugin-organize-imports": "4.1.0",
     "typescript": "~5.8.2",
-    "typescript-eslint": "8.26.0",
-    "vite": "6.2.1"
+    "typescript-eslint": "8.26.0"
   },
   "engines": {
     "node": "22.14.0",
     "yarn": "3.4.1"
   },
-  "packageManager": "yarn@3.4.1+sha512.a333bf9c2557d71f5ba87dd1446cde24bb9c35301ec29dd2baba577b3f9d1ab61348b66a1324de9088c40a996c5b9203794da8bf14cab9fae6a6eccc00cb8078"
+  "packageManager": "yarn@3.4.1"
 }
