@@ -97,7 +97,5 @@ button:focus-visible {
 }
 
 .dog-img {
-  height: 50px;
-  width: 50px;
   object-fit: cover;
 }

@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Dog, fetchDogs, fetchSearch } from './fetch-query.ts';
 
 export const useFetchDogs = () => {
@@ -46,7 +46,7 @@ export const useFetchDogs = () => {
     window.scrollTo(0, 0);
   }, [queryParams]);
 
-  const searchDogsByBreeds = (breedsToSearch: string[]) => {
+  const searchDogsByBreeds = useCallback((breedsToSearch: string[]) => {
     const queryParams = new URLSearchParams();
     breedsToSearch.forEach(breed => {
       queryParams.append('breeds', breed);
@@ -54,10 +54,10 @@ export const useFetchDogs = () => {
     // map over selected breeds object as a list appending breeds
     //size=25&sort=breed:desc
     queryParams.append('size', '100');
-    queryParams.append('sort', 'breed:asc');
+    queryParams.append('sort', `breed:asc`);
     setQueryParams(queryParams);
     setQueryParamsOnPage(null);
-  };
+  }, []);
 
   const isLoading = isSearchLoading || isSearchPageLoading;
   useEffect(() => {
